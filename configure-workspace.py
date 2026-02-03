@@ -194,27 +194,49 @@ for inp in inputs:
 # %%          VSCODE
 ############# VSCODE ###################################################################
 
-if not os.path.exists(f"{ROOT_DIR}/.vscode"):
-    print(f"Creating folder '{ROOT_DIR}/.vscode'")
-    os.mkdir(f"{ROOT_DIR}/.vscode")
-    print(f"Creating folder '{ROOT_DIR}/.vscode/.cache'")
-    os.mkdir(f"{ROOT_DIR}/.vscode/.cache")
-    print(f"Creating folder '{ROOT_DIR}/.vscode/logs'")
-    os.mkdir(f"{ROOT_DIR}/.vscode/logs")
-    print(f"Creating file '{ROOT_DIR}/.vscode/.gitignore'")
-    with open(f"{ROOT_DIR}/.vscode/.gitignore", "w", encoding="utf-8") as fd:
+path = f"{ROOT_DIR}/.vscode"
+if not os.path.exists(path):
+    print(f"Creating folder '{path}'")
+    os.mkdir(path)
+
+path = f"{ROOT_DIR}/.vscode/.cache"
+if not os.path.exists(path):
+    print(f"Creating folder '{path}'")
+    os.mkdir(path)
+
+path = f"{ROOT_DIR}/.vscode/logs"
+if not os.path.exists(path):
+    print(f"Creating folder '{path}'")
+    os.mkdir(path)
+
+path = f"{ROOT_DIR}/.vscode/.gitignore"
+if not os.path.exists(path):
+    print(f"Creating file '{path}'")
+    with open(path, "w", encoding="utf-8") as fd:
         fd.write("*")
-    print(f"Creating file '{ROOT_DIR}/.vscode/launch.json'")
-    with open(f"{ROOT_DIR}/.vscode/launch.json", "w", encoding="utf-8") as json_file:
+
+path = f"{ROOT_DIR}/.vscode/launch.json"
+if not os.path.exists(path):
+    print(f"Creating file '{path}'")
+    with open(path, "w", encoding="utf-8") as json_file:
         json_file.write(LAUNCH_CONTENT)
-    print(f"Creating file '{ROOT_DIR}/.vscode/tasks.json'")
-    with open(f"{ROOT_DIR}/.vscode/tasks.json", "w", encoding="utf-8") as json_file:
+
+path = f"{ROOT_DIR}/.vscode/tasks.json"
+if not os.path.exists(path):
+    print(f"Creating file '{path}'")
+    with open(path, "w", encoding="utf-8") as json_file:
         json_file.write(TASKS_CONTENT)
-    print(f"Creating file '{ROOT_DIR}/.vscode/c_cpp_properties.json'")
-    with open(f"{ROOT_DIR}/.vscode/c_cpp_properties.json", "w", encoding="utf-8") as fd:
+
+path = f"{ROOT_DIR}/.vscode/c_cpp_properties.json"
+if not os.path.exists(path):
+    print(f"Creating file '{path}'")
+    with open(path, "w", encoding="utf-8") as fd:
         fd.write(CPP_PROPS_CONTENT)
-    print(f"Creating file '{ROOT_DIR}/.vscode/settings.json'")
-    with open(f"{ROOT_DIR}/.vscode/settings.json", "w", encoding="utf-8") as fd:
+
+path = f"{ROOT_DIR}/.vscode/settings.json"
+if not os.path.exists(path):
+    print(f"Creating file '{path}'")
+    with open(path, "w", encoding="utf-8") as fd:
         fd.write(SETTINGS_CONTENT)
 
 # %%          SAVE
