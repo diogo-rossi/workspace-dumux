@@ -42,7 +42,7 @@
                 "label": "DUMUX 0 configure workspaces",
                 "detail": "Collect test lists with python and create .vscode folder",
                 "type": "shell",
-                "command": "python $(dirname ${workspaceFolder})/settings-dumux/configure-workspace.py",
+                "command": "python $(dirname ${workspaceFolder})/workspace-dumux/configure-workspace.py",
                 "options": {
                     "cwd": "${fileWorkspaceFolder}"
                 }
