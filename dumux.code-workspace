@@ -1,0 +1,133 @@
+{
+    "folders": [
+        {
+            "path": "../dumux-course"
+        },
+        {
+            "path": "../dumux"
+        },
+        {
+            "path": "../dumux-yourmodule"
+        },
+        // {
+        //     "path": "../dune-alugrid"
+        // },
+        // {
+        //     "path": "../dune-common"
+        // },
+        // {
+        //     "path": "../dune-foamgrid"
+        // },
+        // {
+        //     "path": "../dune-geometry"
+        // },
+        // {
+        //     "path": "../dune-grid"
+        // },
+        // {
+        //     "path": "../dune-istl"
+        // },
+        // {
+        //     "path": "../dune-localfunctions"
+        // },
+        // {
+        //     "path": "../dune-subgrid"
+        // }
+    ],
+    "settings": {},
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "DUMUX 0 configure workspaces",
+                "detail": "Collect test lists with python and create .vscode folder",
+                "type": "shell",
+                "command": "python $(dirname ${workspaceFolder})/settings-dumux/configure-workspace.py",
+                "options": {
+                    "cwd": "${fileWorkspaceFolder}"
+                }
+            },
+            {
+                "label": "DUMUX 1 dunecontrol to configure",
+                "detail": "Calls `dunecontrol` in the dumux installation folder (run in folder above module) to configure and build the module stack",
+                "type": "shell",
+                "command": "./dune-common/bin/dunecontrol --opts=${input:cmakeOpts} ${input:controlModule} all 2>&1 | tee ${workspaceFolder}/.vscode/logs/dunecontrol---$(date +\"%Y-%m-%d--%H-%M-%S\").log",
+                "options": {
+                    "cwd": "${workspaceFolder}/.."
+                }
+            },
+            {
+                "label": "DUMUX 2 dunecontrol to clean cache",
+                "detail": "Calls `dunecontrol` in the dumux installation folder (run in folder above module) to clean the CMake cache",
+                "type": "shell",
+                "command": "./dune-common/bin/dunecontrol bexec rm -r CMakeFiles CMakeCache.txt 2>&1 | tee ${workspaceFolder}/.vscode/logs/dunecontrol---$(date +\"%Y-%m-%d--%H-%M-%S\").log",
+                "options": {
+                    "cwd": "${workspaceFolder}/.."
+                }
+            },
+            {
+                "label": "DUMUX 3 duneproject to create module",
+                "detail": "Calls `duneproject` in the dumux installation folder (run in folder above module) to create a new module",
+                "type": "shell",
+                "command": "./dune-common/bin/duneproject",
+                "options": {
+                    "cwd": "${workspaceFolder}/.."
+                }
+            },
+            {
+                "label": "DUMUX 4 configure cmake",
+                "detail": "Reconfigure the module with `cmake build-cmake` (run in module folder)",
+                "type": "shell",
+                "command": "cmake build-cmake -DCMAKE_BUILD_TYPE=${input:cmakeBuildType} 2>&1 | tee ${workspaceFolder}/.vscode/logs/cmake-configure-${input:cmakeBuildType}---$(date +\"%Y-%m-%d--%H-%M-%S\").log",
+                "options": {
+                    "cwd": "${fileWorkspaceFolder}"
+                }
+            },
+            {
+                "label": "DUMUX 5 make build_tests",
+                "detail": "Make all tests with `make build_tests` (run in `build-cmake` folder)",
+                "type": "shell",
+                "command": "make build_tests 2>&1 | tee ${workspaceFolder}/.vscode/logs/make-build-tests---$(date +\"%Y-%m-%d--%H-%M-%S\").log",
+                "options": {
+                    "cwd": "${fileWorkspaceFolder}/build-cmake"
+                }
+            },
+            {
+                "label": "DUMUX 6 make specific test",
+                "detail": "Make specific test with `make <test-name>` (Run in `build-cmake/{relative-file}` folder)",
+                "type": "shell",
+                "command": "logFile=${workspaceFolder}/build-cmake/${relativeFileDirname}/${input:testCase}---$(date +\"%Y-%m-%d--%H-%M-%S\").compile.log; echo $logFile; make ${input:testCase} 2>&1 | tee $logFile; echo $logFile",
+                "options": {
+                    "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}"
+                }
+            },
+            {
+                "label": "DUMUX 7 run test",
+                "detail": "Run specific test with `<test-name> <param.input>`(Run in `build-cmake/{relative-file}` folder)",
+                "type": "shell",
+                "command": "logFile=${workspaceFolder}/build-cmake/${relativeFileDirname}/${input:testCase}---$(date +\"%Y-%m-%d--%H-%M-%S\").run.log; echo $logFile; ${input:testCase} ${input:paramsFile} 2>&1 | tee $logFile; echo $logFile",
+                "options": {
+                    "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}"
+                }
+            },
+            {
+                "label": "DUMUX 8 Make and Run test",
+                "detail": "Compile and Run specific test (Run in `build-cmake/{relative-file}` folder)",
+                "dependsOrder": "sequence",
+                "dependsOn": [
+                    "DUMUX 6 make specific test",
+                    "DUMUX 7 run test"
+                ]
+            },
+            {
+                "label": "DUMUX 9 Open Results",
+                "detail": "Open results in Paraview (Run in `build-cmake/{relative-file}` folder)",
+                "type": "shell",
+                "command": "echo ${workspaceFolder}/build-cmake/${relativeFileDirname}; paraview *.pvd; paraview.exe *.pvd",
+                "options": {
+                    "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}"
+                }
+            },
+        ]
+    }
+}
