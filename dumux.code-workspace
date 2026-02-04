@@ -133,8 +133,14 @@
                 "detail": "Open results in Paraview (Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
                 "command": "echo ${workspaceFolder}/build-cmake/${relativeFileDirname}; paraview *.pvd; paraview.exe *.pvd",
+                "runOptions": {
+                    "instanceLimit": 100
+                },
                 "options": {
                     "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}"
+                },
+                "presentation": {
+                    "group": "visualization"
                 }
             },
         ]
