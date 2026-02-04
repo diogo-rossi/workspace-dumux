@@ -37,6 +37,15 @@
     "settings": {},
     "tasks": {
         "version": "2.0.0",
+        "presentation": {
+            "echo": true,
+            "focus": false,
+            "showReuseMessage": true,
+            "clear": false,
+            "reveal": "always",
+            "panel": "dedicated",
+        },
+        "problemMatcher": [],
         "tasks": [
             {
                 "label": "DUMUX 0 configure workspaces",
