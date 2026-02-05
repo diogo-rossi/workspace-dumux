@@ -114,9 +114,12 @@
                 "label": "DUMUX 7 run test",
                 "detail": "Run specific test with `<test-name> <param.input>`(Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
-                "command": "logFile=${workspaceFolder}/build-cmake/${relativeFileDirname}/${input:testCase}---$(date +\"%Y-%m-%d--%H-%M-%S\").run.log; echo $logFile; ${input:testCase} ${input:paramsFile} 2>&1 | tee $logFile; echo $logFile",
+                "command": "logFile=${workspaceFolder}/build-cmake/${relativeFileDirname}/${input:testCase}---$(date +\"%Y-%m-%d--%H-%M-%S\").run.log; echo $logFile; ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} 2>&1 | tee $logFile; echo $logFile",
                 "options": {
-                    "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}"
+                    "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}",
+                    "env": {
+                        "PN": "${input:problemName}"
+                    }
                 }
             },
             {

@@ -62,6 +62,12 @@ TASKS_CONTENT = r"""{
     "version": "2.0.0",
     "inputs": [
         {
+            "type": "promptString",
+            "id": "problemName",
+            "description": "Name of the output file problem",
+            "default": ""
+        },
+        {
             "type": "pickString",
             "id": "controlModule",
             "description": "Choose between: all (empty), --module, --only",
