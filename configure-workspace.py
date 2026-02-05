@@ -64,7 +64,7 @@ TASKS_CONTENT = r"""{
         {
             "type": "promptString",
             "id": "problemName",
-            "description": "Name of the output file problem",
+            "description": "Name of the output file problem (empty to use default)",
             "default": ""
         },
         {
