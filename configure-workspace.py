@@ -122,7 +122,10 @@ CPP_PROPS_CONTENT = r"""{
             "${workspaceFolder}/../dune-geometry",
             "${workspaceFolder}/../dune-grid",
             "${workspaceFolder}/../dune-istl",
-            "${workspaceFolder}/../dune-localfunctions"
+            "${workspaceFolder}/../dune-localfunctions",
+            "${workspaceFolder}/../dune-alugrid",
+            "${workspaceFolder}/../dune-foamgrid",
+            "${workspaceFolder}/../dune-subgrid",
         ]
     },
     "configurations": [

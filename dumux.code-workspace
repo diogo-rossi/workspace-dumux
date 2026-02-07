@@ -9,6 +9,12 @@
         {
             "path": "../dumux-yourmodule"
         },
+        {
+            "path": "../dune-alugrid"
+        },
+        {
+            "path": "../dune-grid"
+        },
         // {
         //     "path": "../dune-alugrid"
         // },
