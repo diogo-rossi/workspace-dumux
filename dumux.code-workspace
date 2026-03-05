@@ -15,11 +15,11 @@
         {
             "path": "../dune-grid"
         },
+        {
+            "path": "../dune-common"
+        },
         // {
         //     "path": "../dune-alugrid"
-        // },
-        // {
-        //     "path": "../dune-common"
         // },
         // {
         //     "path": "../dune-foamgrid"
