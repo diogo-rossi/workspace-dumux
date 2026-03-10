@@ -18,6 +18,12 @@
         {
             "path": "../dune-common"
         },
+        {
+            "path": "../opm-grid"
+        },
+        {
+            "path": "."
+        },
         // {
         //     "path": "../dune-alugrid"
         // },
