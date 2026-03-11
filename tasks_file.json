@@ -25,7 +25,8 @@
             "default": "dumux/cmake.opts",
             "options": [
                 "dumux/cmake.opts",
-                "workspace-dumux/cmake-atena.opts"
+                "workspace-dumux/cmake-atena.opts",
+                "workspace-dumux/cmake-opm-build.opts"
             ]
         },
         {
