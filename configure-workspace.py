@@ -10,143 +10,20 @@ import json
 # %%          CONSTANTS
 ############# CONSTANTS ################################################################
 
-LAUNCH_CONTENT = r"""{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(gdb) Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/build-cmake/${relativeFileDirname}/${input:testCase}",
-            "args": [
-                "${input:paramsFile}"
-            ],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/build-cmake/${relativeFileDirname}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                },
-                {
-                    "description": "Set Disassembly Flavor to Intel",
-                    "text": "-gdb-set disassembly-flavor intel",
-                    "ignoreFailures": true
-                }
-            ]
-        }
-    ],
-    "inputs": [
-        {
-            "type": "pickString",
-            "id": "testCase",
-            "description": "List of test cases",
-            "options": []
-        },
-        {
-            "type": "pickString",
-            "id": "paramsFile",
-            "description": "custom params.input file to use",
-            "default": "",
-            "options": []
-        }
-    ]
-}"""
+THIS_DIR: Path = Path(__file__)
 
-TASKS_CONTENT = r"""{
-    "version": "2.0.0",
-    "inputs": [
-        {
-            "type": "promptString",
-            "id": "problemName",
-            "description": "Name of the output file problem (empty to use default)",
-            "default": ""
-        },
-        {
-            "type": "pickString",
-            "id": "controlModule",
-            "description": "Choose between: all (empty), --module, --only",
-            "default": "",
-            "options": [
-                "",
-                "--module=${workspaceFolderBasename}",
-                "--only=${workspaceFolderBasename}"
-            ]
-        },
-        {
-            "type": "pickString",
-            "id": "cmakeOpts",
-            "description": "cmake opts flags file",
-            "default": "dumux/cmake.opts",
-            "options": [
-                "dumux/cmake.opts",
-                "settings-dumux/cmake-atena.opts"
-            ]
-        },
-        {
-            "type": "pickString",
-            "id": "cmakeBuildType",
-            "description": "cmake build type",
-            "default": "Release",
-            "options": [
-                "Release",
-                "Debug"
-            ]
-        },
-        {
-            "type": "pickString",
-            "id": "testCase",
-            "description": "List of test cases",
-            "options": []
-        },
-        {
-            "type": "pickString",
-            "id": "paramsFile",
-            "description": "custom params.input file to use",
-            "default": "",
-            "options": []
-        }
-    ]
-}"""
+with open(THIS_DIR / "cppprop_file.json", "r", encoding="utf-8") as file:
+    CPP_PROPS_CONTENT = file.read()
 
-CPP_PROPS_CONTENT = r"""{
-    "env": {
-        "myIncludePath": [
-            "${workspaceFolder}/../dumux/**",
-            "${workspaceFolder}/../dune-common",
-            "${workspaceFolder}/../dune-geometry",
-            "${workspaceFolder}/../dune-grid",
-            "${workspaceFolder}/../dune-istl",
-            "${workspaceFolder}/../dune-localfunctions",
-            "${workspaceFolder}/../dune-alugrid",
-            "${workspaceFolder}/../dune-foamgrid",
-            "${workspaceFolder}/../dune-subgrid",
-        ]
-    },
-    "configurations": [
-        {
-            "name": "Linux",
-            "includePath": [
-                "${myIncludePath}"
-            ],
-            "defines": [],
-            "compilerPath": "/usr/bin/gcc",
-            "cStandard": "c11",
-            "cppStandard": "c++20",
-            "intelliSenseMode": "linux-gcc-x64"
-        }
-    ],
-    "version": 4
-}"""
+with open(THIS_DIR / "launch_file.json", "r", encoding="utf-8") as file:
+    LAUNCH_CONTENT = file.read()
 
-SETTINGS_CONTENT = r"""{
-    "C_Cpp.intelliSenseCachePath": "${workspaceFolder}/.vscode/.cache/",
-}"""
+with open(THIS_DIR / "settings_file.json", "r", encoding="utf-8") as file:
+    SETTINGS_CONTENT = file.read()
+
+with open(THIS_DIR / "tasks_file.json", "r", encoding="utf-8") as file:
+    TASKS_CONTENT = file.read()
+
 
 ROOT_DIR = Path(os.getcwd())
 
