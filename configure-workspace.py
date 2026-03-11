@@ -10,7 +10,7 @@ import json
 # %%          CONSTANTS
 ############# CONSTANTS ################################################################
 
-THIS_DIR: Path = Path(__file__)
+THIS_DIR: Path = Path(__file__).parent
 
 with open(THIS_DIR / "cppprop_file.json", "r", encoding="utf-8") as file:
     CPP_PROPS_CONTENT = file.read()
