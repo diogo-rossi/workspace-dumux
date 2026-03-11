@@ -1,0 +1,55 @@
+{
+    "version": "2.0.0",
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "problemName",
+            "description": "Name of the output file problem (empty to use default)",
+            "default": ""
+        },
+        {
+            "type": "pickString",
+            "id": "controlModule",
+            "description": "Choose between: all (empty), --module, --only",
+            "default": "",
+            "options": [
+                "",
+                "--module=${workspaceFolderBasename}",
+                "--only=${workspaceFolderBasename}"
+            ]
+        },
+        {
+            "type": "pickString",
+            "id": "cmakeOpts",
+            "description": "cmake opts flags file",
+            "default": "dumux/cmake.opts",
+            "options": [
+                "dumux/cmake.opts",
+                "settings-dumux/cmake-atena.opts"
+            ]
+        },
+        {
+            "type": "pickString",
+            "id": "cmakeBuildType",
+            "description": "cmake build type",
+            "default": "Release",
+            "options": [
+                "Release",
+                "Debug"
+            ]
+        },
+        {
+            "type": "pickString",
+            "id": "testCase",
+            "description": "List of test cases",
+            "options": []
+        },
+        {
+            "type": "pickString",
+            "id": "paramsFile",
+            "description": "custom params.input file to use",
+            "default": "",
+            "options": []
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "env": {
+        "myIncludePath": [
+            "${workspaceFolder}/../dumux/**",
+            "${workspaceFolder}/../dune-common",
+            "${workspaceFolder}/../dune-geometry",
+            "${workspaceFolder}/../dune-grid",
+            "${workspaceFolder}/../dune-istl",
+            "${workspaceFolder}/../dune-localfunctions",
+            "${workspaceFolder}/../dune-alugrid",
+            "${workspaceFolder}/../dune-foamgrid",
+            "${workspaceFolder}/../dune-subgrid",
+        ]
+    },
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${myIncludePath}"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
