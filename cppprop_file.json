@@ -9,7 +9,7 @@
             "${workspaceFolder}/../dune-localfunctions",
             "${workspaceFolder}/../dune-alugrid",
             "${workspaceFolder}/../dune-foamgrid",
-            "${workspaceFolder}/../dune-subgrid",
+            "${workspaceFolder}/../dune-subgrid"
         ]
     },
     "configurations": [
