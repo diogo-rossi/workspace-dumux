@@ -96,34 +96,29 @@ if not os.path.exists(path):
     os.mkdir(path)
 
 path = f"{ROOT_DIR}/.vscode/.gitignore"
-if not os.path.exists(path):
-    print(f"Creating file '{path}'")
-    with open(path, "w", encoding="utf-8") as fd:
-        fd.write("*")
+print(f"Creating file '{path}'")
+with open(path, "w", encoding="utf-8") as fd:
+    fd.write("*")
 
 path = f"{ROOT_DIR}/.vscode/launch.json"
-if not os.path.exists(path):
-    print(f"Creating file '{path}'")
-    with open(path, "w", encoding="utf-8") as json_file:
-        json_file.write(LAUNCH_CONTENT)
+print(f"Creating file '{path}'")
+with open(path, "w", encoding="utf-8") as json_file:
+    json_file.write(LAUNCH_CONTENT)
 
 path = f"{ROOT_DIR}/.vscode/tasks.json"
-if not os.path.exists(path):
-    print(f"Creating file '{path}'")
-    with open(path, "w", encoding="utf-8") as json_file:
-        json_file.write(TASKS_CONTENT)
+print(f"Creating file '{path}'")
+with open(path, "w", encoding="utf-8") as json_file:
+    json_file.write(TASKS_CONTENT)
 
 path = f"{ROOT_DIR}/.vscode/c_cpp_properties.json"
-if not os.path.exists(path):
-    print(f"Creating file '{path}'")
-    with open(path, "w", encoding="utf-8") as fd:
-        fd.write(CPP_PROPS_CONTENT)
+print(f"Creating file '{path}'")
+with open(path, "w", encoding="utf-8") as fd:
+    fd.write(CPP_PROPS_CONTENT)
 
 path = f"{ROOT_DIR}/.vscode/settings.json"
-if not os.path.exists(path):
-    print(f"Creating file '{path}'")
-    with open(path, "w", encoding="utf-8") as fd:
-        fd.write(SETTINGS_CONTENT)
+print(f"Creating file '{path}'")
+with open(path, "w", encoding="utf-8") as fd:
+    fd.write(SETTINGS_CONTENT)
 
 # %%          SAVE
 ############# SAVE #####################################################################
