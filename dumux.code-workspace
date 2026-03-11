@@ -19,6 +19,9 @@
             "path": "../dune-common"
         },
         {
+            "path": "../opm-common"
+        },
+        {
             "path": "../opm-grid"
         },
         {
