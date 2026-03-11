@@ -21,12 +21,12 @@ GXX_RELEASE_OPTS=" \
     -funroll-loops \
     -g0"
 
-# SPECIFIC_COMPILER=""
+SPECIFIC_COMPILER=""
 # if you want to specify a specific compiler, do it by setting (comment the above line)
-SPECIFIC_COMPILER="
--DCMAKE_C_COMPILER=/netprodapps/prod_apps/gcc/13.2/bin/gcc
--DCMAKE_CXX_COMPILER=/netprodapps/prod_apps/gcc/13.2/bin/g++
-"
+#SPECIFIC_COMPILER="
+# -DCMAKE_C_COMPILER=/usr/bin/gcc-8
+# -DCMAKE_CXX_COMPILER=/usr/bin/g++-8
+#"
 
 SPECIFIC_GENERATOR=""
 # if you want to specify a specific make file generator (e.g. ninja), do it by setting (comment the above line)
