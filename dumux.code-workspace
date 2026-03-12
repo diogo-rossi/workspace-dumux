@@ -1,13 +1,13 @@
 {
     "folders": [
         {
+            "path": "../dumux-yourmodule"
+        },
+        {
             "path": "../dumux-course"
         },
         {
             "path": "../dumux"
-        },
-        {
-            "path": "../dumux-yourmodule"
         },
         {
             "path": "../dune-alugrid"
@@ -102,7 +102,7 @@
                 "label": "DUMUX 4 configure cmake",
                 "detail": "Reconfigure the module with `cmake build-cmake` (run in module folder)",
                 "type": "shell",
-                "command": "cmake build-cmake -DCMAKE_BUILD_TYPE=${input:cmakeBuildType} 2>&1 | tee ${workspaceFolder}/.vscode/logs/cmake-configure-${input:cmakeBuildType}---$(date +\"%Y-%m-%d--%H-%M-%S\").log",
+                "command": "cmake build-cmake -DCMAKE_BUILD_TYPE=${input:cmakeBuildType} 2>&1 | tee ${fileWorkspaceFolder}/.vscode/logs/cmake-configure-${input:cmakeBuildType}---$(date +\"%Y-%m-%d--%H-%M-%S\").log",
                 "options": {
                     "cwd": "${fileWorkspaceFolder}"
                 }
@@ -111,7 +111,7 @@
                 "label": "DUMUX 5 make build_tests",
                 "detail": "Make all tests with `make build_tests` (run in `build-cmake` folder)",
                 "type": "shell",
-                "command": "make build_tests 2>&1 | tee ${workspaceFolder}/.vscode/logs/make-build-tests---$(date +\"%Y-%m-%d--%H-%M-%S\").log",
+                "command": "make build_tests 2>&1 | tee ${fileWorkspaceFolder}/.vscode/logs/make-build-tests---$(date +\"%Y-%m-%d--%H-%M-%S\").log",
                 "options": {
                     "cwd": "${fileWorkspaceFolder}/build-cmake"
                 }
@@ -120,7 +120,7 @@
                 "label": "DUMUX 6 make specific test",
                 "detail": "Make specific test with `make <test-name>` (Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
-                "command": "logFile=${workspaceFolder}/build-cmake/${relativeFileDirname}/${input:testCase}---$(date +\"%Y-%m-%d--%H-%M-%S\").compile.log; echo $logFile; make ${input:testCase} 2>&1 | tee $logFile; echo $logFile",
+                "command": "logFile=${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}/${input:testCase}---$(date +\"%Y-%m-%d--%H-%M-%S\").compile.log; echo $logFile; make ${input:testCase} 2>&1 | tee $logFile; echo $logFile",
                 "options": {
                     "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}"
                 }
@@ -129,7 +129,7 @@
                 "label": "DUMUX 7 run test",
                 "detail": "Run specific test with `<test-name> <param.input>`(Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
-                "command": "logFile=${workspaceFolder}/build-cmake/${relativeFileDirname}/${input:testCase}---$(date +\"%Y-%m-%d--%H-%M-%S\").run.log; echo $logFile; ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} 2>&1 | tee $logFile; echo $logFile",
+                "command": "logFile=${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}/${input:testCase}---$(date +\"%Y-%m-%d--%H-%M-%S\").run.log; echo $logFile; ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} 2>&1 | tee $logFile; echo $logFile",
                 "options": {
                     "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}",
                     "env": {
@@ -150,7 +150,7 @@
                 "label": "DUMUX 9 Open Results",
                 "detail": "Open results in Paraview (Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
-                "command": "echo ${workspaceFolder}/build-cmake/${relativeFileDirname}; paraview *.pvd; paraview.exe *.pvd",
+                "command": "echo ${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}; paraview *.pvd; paraview.exe *.pvd",
                 "runOptions": {
                     "instanceLimit": 100
                 },
