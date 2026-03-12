@@ -65,15 +65,15 @@ inputs = sorted(
     )
 )
 
-print("Collected tests:")
+print("-- Collected tests:")
 for test in tests:
     print(f"    {test}")
 
-print("Collected folders:")
+print("-- Collected folders:")
 for folder in folders:
     print(f"    {folder}")
 
-print("Collected inputs:")
+print("-- Collected inputs:")
 for inp in inputs:
     print(f"    {inp}")
 
@@ -82,41 +82,41 @@ for inp in inputs:
 
 path = f"{ROOT_DIR}/.vscode"
 if not os.path.exists(path):
-    print(f"Creating folder '{path}'")
+    print(f"> Creating folder '{path}'")
     os.mkdir(path)
 
 path = f"{ROOT_DIR}/.vscode/.cache"
 if not os.path.exists(path):
-    print(f"Creating folder '{path}'")
+    print(f"> Creating folder '{path}'")
     os.mkdir(path)
 
 path = f"{ROOT_DIR}/.vscode/logs"
 if not os.path.exists(path):
-    print(f"Creating folder '{path}'")
+    print(f"> Creating folder '{path}'")
     os.mkdir(path)
 
 path = f"{ROOT_DIR}/.vscode/.gitignore"
-print(f"Creating file '{path}'")
+print(f"> re-creating file '{path}'")
 with open(path, "w", encoding="utf-8") as fd:
     fd.write("*")
 
 path = f"{ROOT_DIR}/.vscode/launch.json"
-print(f"Creating file '{path}'")
+print(f"> re-creating file '{path}'")
 with open(path, "w", encoding="utf-8") as json_file:
     json_file.write(LAUNCH_CONTENT)
 
 path = f"{ROOT_DIR}/.vscode/tasks.json"
-print(f"Creating file '{path}'")
+print(f"> re-creating file '{path}'")
 with open(path, "w", encoding="utf-8") as json_file:
     json_file.write(TASKS_CONTENT)
 
 path = f"{ROOT_DIR}/.vscode/c_cpp_properties.json"
-print(f"Creating file '{path}'")
+print(f"> re-creating file '{path}'")
 with open(path, "w", encoding="utf-8") as fd:
     fd.write(CPP_PROPS_CONTENT)
 
 path = f"{ROOT_DIR}/.vscode/settings.json"
-print(f"Creating file '{path}'")
+print(f"> re-creating file '{path}'")
 with open(path, "w", encoding="utf-8") as fd:
     fd.write(SETTINGS_CONTENT)
 
@@ -136,11 +136,11 @@ tasks["inputs"][-1]["options"] = inputs
 launch["inputs"][-2]["options"] = tests
 launch["inputs"][-1]["options"] = inputs
 
-print(f"Editing file '{ROOT_DIR}/.vscode/tasks.json'")
+print(f"> Editing file '{ROOT_DIR}/.vscode/tasks.json'")
 with open(f"{ROOT_DIR}/.vscode/tasks.json", "w", encoding="utf-8") as json_file:
     json.dump(tasks, json_file, indent=4, ensure_ascii=False)
 
-print(f"Editing file '{ROOT_DIR}/.vscode/launch.json'")
+print(f"> Editing file '{ROOT_DIR}/.vscode/launch.json'")
 with open(f"{ROOT_DIR}/.vscode/launch.json", "w", encoding="utf-8") as json_file:
     json.dump(launch, json_file, indent=4, ensure_ascii=False)
 
