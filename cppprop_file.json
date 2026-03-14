@@ -2,14 +2,16 @@
     "env": {
         "myIncludePath": [
             "${workspaceFolder}/../dumux/**",
-            "${workspaceFolder}/../dune-common",
-            "${workspaceFolder}/../dune-geometry",
-            "${workspaceFolder}/../dune-grid",
-            "${workspaceFolder}/../dune-istl",
-            "${workspaceFolder}/../dune-localfunctions",
-            "${workspaceFolder}/../dune-alugrid",
-            "${workspaceFolder}/../dune-foamgrid",
-            "${workspaceFolder}/../dune-subgrid"
+            "${workspaceFolder}/../dune-common/**",
+            "${workspaceFolder}/../dune-geometry/**",
+            "${workspaceFolder}/../dune-grid/**",
+            "${workspaceFolder}/../dune-istl/**",
+            "${workspaceFolder}/../dune-localfunctions/**",
+            "${workspaceFolder}/../dune-alugrid/**",
+            "${workspaceFolder}/../dune-foamgrid/**",
+            "${workspaceFolder}/../dune-subgrid/**",
+            "${workspaceFolder}/../opm-common/**",
+            "${workspaceFolder}/../opm-grid/**"
         ]
     },
     "configurations": [
