@@ -1,6 +1,9 @@
 {
     "folders": [
         {
+            "path": "../cornerpoint-grid"
+        },
+        {
             "path": "../dumux-yourmodule"
         },
         {
