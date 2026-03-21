@@ -1,56 +1,35 @@
 {
     "folders": [
         {
-            "path": "../cornerpoint-grid"
-        },
-        {
-            "path": "../dumux-yourmodule"
-        },
-        {
-            "path": "../dumux-course"
-        },
-        {
             "path": "../dumux"
         },
         {
             "path": "../dune-alugrid"
         },
         {
-            "path": "../dune-grid"
-        },
-        {
             "path": "../dune-common"
         },
         {
-            "path": "../opm-common"
+            "path": "../dune-foamgrid"
         },
         {
-            "path": "../opm-grid"
+            "path": "../dune-geometry"
+        },
+        {
+            "path": "../dune-grid"
+        },
+        {
+            "path": "../dune-istl"
+        },
+        {
+            "path": "../dune-localfunctions"
+        },
+        {
+            "path": "../dune-subgrid"
         },
         {
             "path": "."
         },
-        // {
-        //     "path": "../dune-alugrid"
-        // },
-        // {
-        //     "path": "../dune-foamgrid"
-        // },
-        // {
-        //     "path": "../dune-geometry"
-        // },
-        // {
-        //     "path": "../dune-grid"
-        // },
-        // {
-        //     "path": "../dune-istl"
-        // },
-        // {
-        //     "path": "../dune-localfunctions"
-        // },
-        // {
-        //     "path": "../dune-subgrid"
-        // }
     ],
     "settings": {},
     "tasks": {
@@ -67,7 +46,7 @@
         "tasks": [
             {
                 "label": "DUMUX 0 configure workspaces",
-                "detail": "Collect test lists with python and create .vscode folder",
+                "detail": "Collects test lists and creates .vscode folder using a python script",
                 "type": "shell",
                 "command": "python $(dirname ${workspaceFolder})/workspace-dumux/configure-workspace.py",
                 "options": {
