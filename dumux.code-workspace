@@ -102,7 +102,7 @@
                 "label": "DUMUX 6 make specific test",
                 "detail": "Make specific test with `make <test-name>` (Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
-                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; logFile=$folder/$(date +\"%Y-%m-%d--%H-%M-%S\")---${input:testCase}-compile.log; echo \">\" make ${input:testCase} | tee $logFile; echo $logFile; make ${input:testCase} 2>&1 | tee -a $logFile; echo $logFile",
+                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; logFile=$folder/$(date +\"%Y-%m-%d--%H-%M-%S\")---${input:testCase}-compile.log; echo ----------; echo \">\" make ${input:testCase} | tee $logFile; echo $logFile; make ${input:testCase} 2>&1 | tee -a $logFile; echo $logFile",
                 "options": {
                     //     "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}"
                 }
@@ -111,7 +111,7 @@
                 "label": "DUMUX 7 run test",
                 "detail": "Run specific test with `<test-name> <param.input>`(Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
-                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; logFile=$folder/$(date +\"%Y-%m-%d--%H-%M-%S\")---${input:testCase}-run.log; echo \">\" ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} | tee $logFile; echo $logFile; ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} 2>&1 | tee -a $logFile; echo $logFile",
+                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; logFile=$folder/$(date +\"%Y-%m-%d--%H-%M-%S\")---${input:testCase}-run.log; echo ----------; echo \">\" ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} | tee $logFile; echo $logFile; ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} 2>&1 | tee -a $logFile; echo $logFile",
                 "options": {
                     // "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}",
                     "env": {
@@ -132,7 +132,7 @@
                 "label": "DUMUX 9 Open Results",
                 "detail": "Open results in Paraview (Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
-                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; echo $folder; paraview *.pvd; paraview.exe *.pvd",
+                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; echo ----------; echo $folder; paraview *.pvd; paraview.exe *.pvd",
                 "runOptions": {
                     "instanceLimit": 100
                 },
