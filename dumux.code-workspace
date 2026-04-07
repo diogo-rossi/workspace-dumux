@@ -132,7 +132,7 @@
                 "label": "DUMUX 9 Open Results",
                 "detail": "Open results in Paraview (Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
-                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; echo ----------; echo $folder; paraview *.pvd; paraview.exe *.pvd",
+                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; echo ----------; echo \">\" cd $folder; echo Opening ParaView . . .; paraview-with-env.ps1",
                 "runOptions": {
                     "instanceLimit": 100
                 },
