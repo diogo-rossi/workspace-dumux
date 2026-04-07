@@ -102,7 +102,7 @@
                 "label": "DUMUX 6 make specific test",
                 "detail": "Make specific test with `make <test-name>` (Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
-                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; logFile=$folder/$(date +\"%Y-%m-%d--%H-%M-%S\")---${input:testCase}-compile.log; echo ----------; echo \">\" make ${input:testCase} | tee $logFile; echo $logFile; make ${input:testCase} 2>&1 | tee -a $logFile; echo $logFile",
+                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; logFile=$folder/$(date +\"%Y-%m-%d--%H-%M-%S\")---${input:testCase}-compile.log; echo ----------; echo \">\" cd $folder; echo \">\" make ${input:testCase} | tee $logFile; echo Log file: $logFile; make ${input:testCase} 2>&1 | tee -a $logFile; echo Log file: $logFile",
                 "options": {
                     //     "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}"
                 }
@@ -111,7 +111,7 @@
                 "label": "DUMUX 7 run test",
                 "detail": "Run specific test with `<test-name> <param.input>`(Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
-                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; logFile=$folder/$(date +\"%Y-%m-%d--%H-%M-%S\")---${input:testCase}-run.log; echo ----------; echo \">\" ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} | tee $logFile; echo $logFile; ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} 2>&1 | tee -a $logFile; echo $logFile",
+                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; logFile=$folder/$(date +\"%Y-%m-%d--%H-%M-%S\")---${input:testCase}-run.log; echo ----------; echo \">\" cd $folder; echo \">\" ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} | tee $logFile; echo Log file: $logFile; ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} 2>&1 | tee -a $logFile; echo Log file: $logFile",
                 "options": {
                     // "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}",
                     "env": {
