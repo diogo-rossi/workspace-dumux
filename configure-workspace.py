@@ -105,10 +105,10 @@ print(f"> re-creating file '{path}'")
 with open(path, "w", encoding="utf-8") as json_file:
     json_file.write(LAUNCH_CONTENT)
 
-path = f"{ROOT_DIR}/.vscode/tasks.json"
-print(f"> re-creating file '{path}'")
-with open(path, "w", encoding="utf-8") as json_file:
-    json_file.write(TASKS_CONTENT)
+# path = f"{ROOT_DIR}/.vscode/tasks.json"
+# print(f"> re-creating file '{path}'")
+# with open(path, "w", encoding="utf-8") as json_file:
+#     json_file.write(TASKS_CONTENT)
 
 path = f"{ROOT_DIR}/.vscode/c_cpp_properties.json"
 print(f"> re-creating file '{path}'")
@@ -123,26 +123,27 @@ with open(path, "w", encoding="utf-8") as fd:
 # %%          SAVE
 ############# SAVE #####################################################################
 
-with open(f"{ROOT_DIR}/.vscode/tasks.json", "r", encoding="utf-8") as json_file:
-    tasks = json.load(json_file)
+with open(f"{THIS_DIR}/dumux.code-workspace.json", "r", encoding="utf-8") as json_file:
+    wsfile = json.load(json_file)
 
-with open(f"{ROOT_DIR}/.vscode/launch.json", "r", encoding="utf-8") as json_file:
-    launch = json.load(json_file)
+# with open(f"{ROOT_DIR}/.vscode/launch.json", "r", encoding="utf-8") as json_file:
+#     launch = json.load(json_file)
 
 inputs = [""] + inputs
+tests = [""] + tests
 
-tasks["inputs"][-2]["options"] = tests
-tasks["inputs"][-1]["options"] = inputs
-launch["inputs"][-2]["options"] = tests
-launch["inputs"][-1]["options"] = inputs
+wsfile["tasks"]["inputs"][-2]["options"] = tests
+wsfile["tasks"]["inputs"][-1]["options"] = inputs
+# launch["inputs"][-2]["options"] = tests
+# launch["inputs"][-1]["options"] = inputs
 
-print(f"> Editing file '{ROOT_DIR}/.vscode/tasks.json'")
+print(f"> Editing file '{THIS_DIR}/dumux.code-workspace.json'")
 with open(f"{ROOT_DIR}/.vscode/tasks.json", "w", encoding="utf-8") as json_file:
-    json.dump(tasks, json_file, indent=4, ensure_ascii=False)
+    json.dump(wsfile, json_file, indent=4, ensure_ascii=False)
 
-print(f"> Editing file '{ROOT_DIR}/.vscode/launch.json'")
-with open(f"{ROOT_DIR}/.vscode/launch.json", "w", encoding="utf-8") as json_file:
-    json.dump(launch, json_file, indent=4, ensure_ascii=False)
+# print(f"> Editing file '{ROOT_DIR}/.vscode/launch.json'")
+# with open(f"{ROOT_DIR}/.vscode/launch.json", "w", encoding="utf-8") as json_file:
+#     json.dump(launch, json_file, indent=4, ensure_ascii=False)
 
 # %%          EDIT
 ############# EDIT #####################################################################
