@@ -15,14 +15,14 @@ THIS_DIR: Path = Path(__file__).parent
 with open(THIS_DIR / "cppprop_file.json", "r", encoding="utf-8") as file:
     CPP_PROPS_CONTENT = file.read()
 
-with open(THIS_DIR / "launch_file.json", "r", encoding="utf-8") as file:
-    LAUNCH_CONTENT = file.read()
+# with open(THIS_DIR / "launch_file.json", "r", encoding="utf-8") as file:
+#     LAUNCH_CONTENT = file.read()
 
 with open(THIS_DIR / "settings_file.json", "r", encoding="utf-8") as file:
     SETTINGS_CONTENT = file.read()
 
-with open(THIS_DIR / "tasks_file.json", "r", encoding="utf-8") as file:
-    TASKS_CONTENT = file.read()
+# with open(THIS_DIR / "tasks_file.json", "r", encoding="utf-8") as file:
+#     TASKS_CONTENT = file.read()
 
 
 ROOT_DIR = Path(os.getcwd())
@@ -100,10 +100,10 @@ print(f"> re-creating file '{path}'")
 with open(path, "w", encoding="utf-8") as fd:
     fd.write("*")
 
-path = f"{ROOT_DIR}/.vscode/launch.json"
-print(f"> re-creating file '{path}'")
-with open(path, "w", encoding="utf-8") as json_file:
-    json_file.write(LAUNCH_CONTENT)
+# path = f"{ROOT_DIR}/.vscode/launch.json"
+# print(f"> re-creating file '{path}'")
+# with open(path, "w", encoding="utf-8") as json_file:
+#     json_file.write(LAUNCH_CONTENT)
 
 # path = f"{ROOT_DIR}/.vscode/tasks.json"
 # print(f"> re-creating file '{path}'")
