@@ -143,6 +143,71 @@
                     "group": "visualization"
                 }
             },
+        ],
+        "inputs": [
+            {
+                "id": "problemName",
+                "type": "promptString",
+                "description": "Name of the output file problem (empty to use default)",
+                "default": ""
+            },
+            {
+                "id": "controlModule",
+                "type": "pickString",
+                "description": "Choose between: all (empty), --module, --only",
+                "default": "",
+                "options": [
+                    "",
+                    "--module=${workspaceFolderBasename}",
+                    "--only=${workspaceFolderBasename}"
+                ]
+            },
+            {
+                "id": "cmakeOpts",
+                "type": "pickString",
+                "description": "cmake opts flags file",
+                "default": "dumux/cmake.opts",
+                "options": [
+                    "dumux/cmake.opts",
+                    "workspace-dumux/cmake-atena.opts",
+                    "workspace-dumux/cmake-opm-build.opts"
+                ]
+            },
+            {
+                "id": "cmakeBuildType",
+                "type": "pickString",
+                "description": "cmake build type",
+                "default": "Release",
+                "options": [
+                    "Release",
+                    "Debug"
+                ]
+            },
+            {
+                "id": "addSubdirectories",
+                "type": "pickString",
+                "description": "Add subdirectories to main CMakeLists.txt?",
+                "default": "no",
+                "options": [
+                    "yes",
+                    "no"
+                ]
+            },
+            {
+                "id": "testCase",
+                "type": "pickString",
+                "description": "List of test cases",
+                "options": [
+                    ""
+                ]
+            },
+            {
+                "id": "paramsFile",
+                "type": "pickString",
+                "description": "custom params.input file to use",
+                "default": "params.input",
+                "options": []
+            }
         ]
     }
 }
