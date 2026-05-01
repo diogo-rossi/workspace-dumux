@@ -148,7 +148,8 @@ with open(f"{ROOT_DIR}/.vscode/tasks.json", "w", encoding="utf-8") as json_file:
 # %%          EDIT
 ############# EDIT #####################################################################
 
-if sys.argv[1] == "yes":  # Add subdirectories to main CMakeLists.txt?
+# Add subdirectories to main CMakeLists.txt?
+if len(sys.argv) > 1 and sys.argv[1] == "yes":
 
     with open(f"{ROOT_DIR}/CMakeLists.txt", "r", encoding="utf-8") as fd:
         lines = fd.readlines()
