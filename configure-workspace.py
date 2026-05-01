@@ -134,6 +134,8 @@ tests = [""] + tests
 
 wsfile["tasks"]["inputs"][-2]["options"] = tests
 wsfile["tasks"]["inputs"][-1]["options"] = inputs
+wsfile["launch"]["inputs"][-2]["options"] = tests
+wsfile["launch"]["inputs"][-1]["options"] = inputs
 # launch["inputs"][-2]["options"] = tests
 # launch["inputs"][-1]["options"] = inputs
 
