@@ -155,6 +155,7 @@ os.replace(f"{THIS_DIR}/dumux.code-workspace.tmp", f"{THIS_DIR}/dumux.code-works
 # Add subdirectories to main CMakeLists.txt?
 if len(sys.argv) > 1 and sys.argv[1] == "yes":
 
+    print(f"> Editing file '{ROOT_DIR}/CMakeLists.txt'")
     with open(f"{ROOT_DIR}/CMakeLists.txt", "r", encoding="utf-8") as fd:
         lines = fd.readlines()
 
