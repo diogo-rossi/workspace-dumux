@@ -130,7 +130,6 @@ with open(f"{ROOT_DIR}/.vscode/launch.json", "r", encoding="utf-8") as json_file
     launch = json.load(json_file)
 
 inputs = [""] + inputs
-tests = [""] + tests
 
 wsfile["tasks"]["inputs"][-2]["options"] = tests
 wsfile["tasks"]["inputs"][-1]["options"] = inputs
