@@ -139,8 +139,8 @@ wsfile["launch"]["inputs"][-1]["options"] = inputs
 # launch["inputs"][-2]["options"] = tests
 # launch["inputs"][-1]["options"] = inputs
 
-print(f"> Editing file '{THIS_DIR}/dumux.code-workspace.json'")
-with open(f"{ROOT_DIR}/.vscode/tasks.json", "w", encoding="utf-8") as json_file:
+print(f"> Editing file '{THIS_DIR}/dumux.code-workspace'")
+with open(f"{THIS_DIR}/dumux.code-workspace", "w", encoding="utf-8") as json_file:
     json.dump(wsfile, json_file, indent=4, ensure_ascii=False)
 
 # print(f"> Editing file '{ROOT_DIR}/.vscode/launch.json'")
