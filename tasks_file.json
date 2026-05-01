@@ -2,14 +2,14 @@
     "version": "2.0.0",
     "inputs": [
         {
-            "type": "promptString",
             "id": "problemName",
+            "type": "promptString",
             "description": "Name of the output file problem (empty to use default)",
             "default": ""
         },
         {
-            "type": "pickString",
             "id": "controlModule",
+            "type": "pickString",
             "description": "Choose between: all (empty), --module, --only",
             "default": "",
             "options": [
@@ -19,8 +19,8 @@
             ]
         },
         {
-            "type": "pickString",
             "id": "cmakeOpts",
+            "type": "pickString",
             "description": "cmake opts flags file",
             "default": "dumux/cmake.opts",
             "options": [
@@ -30,8 +30,8 @@
             ]
         },
         {
-            "type": "pickString",
             "id": "cmakeBuildType",
+            "type": "pickString",
             "description": "cmake build type",
             "default": "Release",
             "options": [
@@ -40,27 +40,27 @@
             ]
         },
         {
-            "type": "pickString",
-            "id": "testCase",
-            "description": "List of test cases",
-            "options": []
-        },
-        {
-            "type": "pickString",
-            "id": "paramsFile",
-            "description": "custom params.input file to use",
-            "default": "",
-            "options": []
-        },
-        {
-            "type": "pickString",
             "id": "addSubdirectories",
+            "type": "pickString",
             "description": "Add subdirectories to main CMakeLists.txt?",
             "default": "no",
             "options": [
                 "yes",
                 "no"
             ]
+        },
+        {
+            "id": "testCase",
+            "type": "pickString",
+            "description": "List of test cases",
+            "options": [""]
+        },
+        {
+            "id": "paramsFile",
+            "type": "pickString",
+            "description": "custom params.input file to use",
+            "default": "params.input",
+            "options": []
         }
     ]
 }
