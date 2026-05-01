@@ -123,7 +123,7 @@ with open(path, "w", encoding="utf-8") as fd:
 # %%          SAVE
 ############# SAVE #####################################################################
 
-with open(f"{THIS_DIR}/dumux.code-workspace.json", "r", encoding="utf-8") as json_file:
+with open(f"{THIS_DIR}/dumux.code-workspace", "r", encoding="utf-8") as json_file:
     wsfile = json.load(json_file)
 
 # with open(f"{ROOT_DIR}/.vscode/launch.json", "r", encoding="utf-8") as json_file:
