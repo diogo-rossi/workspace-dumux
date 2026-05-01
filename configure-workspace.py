@@ -15,9 +15,14 @@ THIS_DIR: Path = Path(__file__).parent
 with open(THIS_DIR / "cppprop_file.json", "r", encoding="utf-8") as file:
     CPP_PROPS_CONTENT = file.read()
 
+# with open(THIS_DIR / "launch_file.json", "r", encoding="utf-8") as file:
+#     LAUNCH_CONTENT = file.read()
 
 with open(THIS_DIR / "settings_file.json", "r", encoding="utf-8") as file:
     SETTINGS_CONTENT = file.read()
+
+# with open(THIS_DIR / "tasks_file.json", "r", encoding="utf-8") as file:
+#     TASKS_CONTENT = file.read()
 
 
 ROOT_DIR = Path(os.getcwd())
@@ -95,6 +100,16 @@ print(f"> re-creating file '{path}'")
 with open(path, "w", encoding="utf-8") as fd:
     fd.write("*")
 
+# path = f"{ROOT_DIR}/.vscode/launch.json"
+# print(f"> re-creating file '{path}'")
+# with open(path, "w", encoding="utf-8") as json_file:
+#     json_file.write(LAUNCH_CONTENT)
+
+# path = f"{ROOT_DIR}/.vscode/tasks.json"
+# print(f"> re-creating file '{path}'")
+# with open(path, "w", encoding="utf-8") as json_file:
+#     json_file.write(TASKS_CONTENT)
+
 path = f"{ROOT_DIR}/.vscode/c_cpp_properties.json"
 print(f"> re-creating file '{path}'")
 with open(path, "w", encoding="utf-8") as fd:
@@ -111,6 +126,9 @@ with open(path, "w", encoding="utf-8") as fd:
 with open(f"{THIS_DIR}/dumux.code-workspace", "r", encoding="utf-8") as json_file:
     wsfile = json.load(json_file)
 
+# with open(f"{ROOT_DIR}/.vscode/launch.json", "r", encoding="utf-8") as json_file:
+#     launch = json.load(json_file)
+
 inputs = [""] + inputs
 tests = [""] + tests
 
@@ -118,12 +136,18 @@ wsfile["tasks"]["inputs"][-2]["options"] = tests
 wsfile["tasks"]["inputs"][-1]["options"] = inputs
 wsfile["launch"]["inputs"][-2]["options"] = tests
 wsfile["launch"]["inputs"][-1]["options"] = inputs
+# launch["inputs"][-2]["options"] = tests
+# launch["inputs"][-1]["options"] = inputs
 
 print(f"> Editing file '{THIS_DIR}/dumux.code-workspace'")
 with open(f"{THIS_DIR}/dumux.code-workspace.tmp", "w", encoding="utf-8") as json_file:
     json.dump(wsfile, json_file, indent=4, ensure_ascii=False)
 
 os.replace(f"{THIS_DIR}/dumux.code-workspace.tmp", f"{THIS_DIR}/dumux.code-workspace")
+
+# print(f"> Editing file '{ROOT_DIR}/.vscode/launch.json'")
+# with open(f"{ROOT_DIR}/.vscode/launch.json", "w", encoding="utf-8") as json_file:
+#     json.dump(launch, json_file, indent=4, ensure_ascii=False)
 
 # %%          EDIT
 ############# EDIT #####################################################################
