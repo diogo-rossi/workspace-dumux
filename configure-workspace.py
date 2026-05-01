@@ -140,8 +140,10 @@ wsfile["launch"]["inputs"][-1]["options"] = inputs
 # launch["inputs"][-1]["options"] = inputs
 
 print(f"> Editing file '{THIS_DIR}/dumux.code-workspace'")
-with open(f"{THIS_DIR}/dumux.code-workspace", "w", encoding="utf-8") as json_file:
+with open(f"{THIS_DIR}/dumux.code-workspace.tmp", "w", encoding="utf-8") as json_file:
     json.dump(wsfile, json_file, indent=4, ensure_ascii=False)
+
+os.replace(f"{THIS_DIR}/dumux.code-workspace.tmp", f"{THIS_DIR}/dumux.code-workspace")
 
 # print(f"> Editing file '{ROOT_DIR}/.vscode/launch.json'")
 # with open(f"{ROOT_DIR}/.vscode/launch.json", "w", encoding="utf-8") as json_file:
