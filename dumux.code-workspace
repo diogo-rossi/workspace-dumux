@@ -29,7 +29,7 @@
         },
         {
             "path": "."
-        },
+        }
     ],
     "settings": {},
     "tasks": {
@@ -40,7 +40,7 @@
             "showReuseMessage": true,
             "clear": false,
             "reveal": "always",
-            "panel": "dedicated",
+            "panel": "dedicated"
         },
         "problemMatcher": [],
         "tasks": [
@@ -103,9 +103,7 @@
                 "detail": "Make specific test with `make <test-name>` (Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
                 "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; logFile=$folder/$(date +\"%Y-%m-%d--%H-%M-%S\")---${input:testCase}-compile.log; echo ----------; echo \">\" cd $folder; echo \">\" make ${input:testCase} | tee $logFile; echo Log file: $logFile; make ${input:testCase} 2>&1 | tee -a $logFile; echo Log file: $logFile",
-                "options": {
-                    //     "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}"
-                }
+                "options": {}
             },
             {
                 "label": "DUMUX 7 run test",
@@ -113,7 +111,6 @@
                 "type": "shell",
                 "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; logFile=$folder/$(date +\"%Y-%m-%d--%H-%M-%S\")---${input:testCase}-run.log; echo ----------; echo \">\" cd $folder; echo \">\" ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} | tee $logFile; echo Log file: $logFile; ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} 2>&1 | tee -a $logFile; echo Log file: $logFile",
                 "options": {
-                    // "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}",
                     "env": {
                         "PN": "${input:problemName}"
                     }
@@ -136,9 +133,7 @@
                 "runOptions": {
                     "instanceLimit": 100
                 },
-                "options": {
-                    //     "cwd": "${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}"
-                },
+                "options": {},
                 "presentation": {
                     "group": "visualization"
                 }
