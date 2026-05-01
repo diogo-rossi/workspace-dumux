@@ -48,7 +48,7 @@
                 "label": "DUMUX 0 configure workspaces",
                 "detail": "Collects test lists and creates .vscode folder using a python script",
                 "type": "shell",
-                "command": "python $(dirname ${workspaceFolder})/workspace-dumux/configure-workspace.py",
+                "command": "python $(dirname ${workspaceFolder})/workspace-dumux/configure-workspace.py ${input:addSubdirectories}",
                 "options": {
                     "cwd": "${fileWorkspaceFolder}"
                 }

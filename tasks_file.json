@@ -51,6 +51,16 @@
             "description": "custom params.input file to use",
             "default": "",
             "options": []
+        },
+        {
+            "type": "pickString",
+            "id": "addSubdirectories",
+            "description": "Add subdirectories to main CMakeLists.txt?",
+            "default": "no",
+            "options": [
+                "yes",
+                "no"
+            ]
         }
     ]
 }

@@ -147,7 +147,7 @@ with open(f"{ROOT_DIR}/.vscode/launch.json", "w", encoding="utf-8") as json_file
 # %%          EDIT
 ############# EDIT #####################################################################
 
-if input(f"> Add subdirectories to main CMakeLists.txt? (y/[n]])? ") == "y":
+if sys.argv[1] == "yes":  # Add subdirectories to main CMakeLists.txt?
 
     with open(f"{ROOT_DIR}/CMakeLists.txt", "r", encoding="utf-8") as fd:
         lines = fd.readlines()
