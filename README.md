@@ -9,8 +9,16 @@ Clone this repo on the same folder as the
 [DUMUX installation folder](https://dumux.org/docs/doxygen/master/installation.html#configure-and-build)
 (alonside with `dumux` and `dune` modules)
 
+Using `https`:
+
 ```shell
 git clone https://github.com/diogo-rossi/workspace-dumux.git
+```
+
+Or using `ssh`
+
+```shell
+git clone git@github.com:diogo-rossi/workspace-dumux.git
 ```
 
 Open the workspace in VSCode with the file
@@ -52,5 +60,11 @@ You can configure the default folder (first folder in the workspace) in the
 8. **Make and Run test:** Compile and Run specific test (Run in
    `build-cmake/{relative-file}` folder).
 
-9. **Open Results:** Open results in Paraview (Run in
-   `build-cmake/{relative-file}` folder).
+9. **Open Results:** Open results folder in Paraview (Run in
+   `build-cmake/{relative-file}` folder) using PowerShell script
+   [`paraview-with-env.ps1`](./paraview-with-env.ps1) (WSL only: both the script
+   and `paraview.exe` must be found in the system's `PATH`)
+
+### To run a specific task:
+
+<kbd>F1</kbd> → `> Tasks: Run Task` → Select the task to run.
