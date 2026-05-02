@@ -18,13 +18,6 @@ with open(THIS_DIR / "cppprop_file.json", "r", encoding="utf-8") as file:
 with open(THIS_DIR / "launch_file.json", "r", encoding="utf-8") as file:
     LAUNCH_CONTENT = file.read()
 
-# with open(THIS_DIR / "settings_file.json", "r", encoding="utf-8") as file:
-#     SETTINGS_CONTENT = file.read()
-
-# with open(THIS_DIR / "tasks_file.json", "r", encoding="utf-8") as file:
-#     TASKS_CONTENT = file.read()
-
-
 ROOT_DIR = Path(os.getcwd())
 
 # %%          COLLECT
@@ -85,11 +78,6 @@ if not os.path.exists(path):
     print(f"> Creating folder '{path}'")
     os.mkdir(path)
 
-# path = f"{ROOT_DIR}/.vscode/.cache"
-# if not os.path.exists(path):
-#     print(f"> Creating folder '{path}'")
-#     os.mkdir(path)
-
 path = f"{ROOT_DIR}/.vscode/logs"
 if not os.path.exists(path):
     print(f"> Creating folder '{path}'")
@@ -105,20 +93,10 @@ print(f"> re-creating file '{path}'")
 with open(path, "w", encoding="utf-8") as json_file:
     json_file.write(LAUNCH_CONTENT)
 
-# path = f"{ROOT_DIR}/.vscode/tasks.json"
-# print(f"> re-creating file '{path}'")
-# with open(path, "w", encoding="utf-8") as json_file:
-#     json_file.write(TASKS_CONTENT)
-
 path = f"{ROOT_DIR}/.vscode/c_cpp_properties.json"
 print(f"> re-creating file '{path}'")
 with open(path, "w", encoding="utf-8") as fd:
     fd.write(CPP_PROPS_CONTENT)
-
-# path = f"{ROOT_DIR}/.vscode/settings.json"
-# print(f"> re-creating file '{path}'")
-# with open(path, "w", encoding="utf-8") as fd:
-#     fd.write(SETTINGS_CONTENT)
 
 # %%          SAVE
 ############# SAVE #####################################################################
