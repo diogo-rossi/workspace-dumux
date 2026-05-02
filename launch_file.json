@@ -39,7 +39,7 @@
         {
             "type": "pickString",
             "id": "paramsFile",
-            "description": "custom params.input file to use",
+            "description": "Custom params.input file to use",
             "default": "",
             "options": []
         }
