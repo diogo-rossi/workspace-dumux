@@ -1,0 +1,45 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build-cmake/${relativeFileDirname}/${input:testCase}",
+            "args": [
+                "${input:paramsFile}"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build-cmake/${relativeFileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "testCase",
+            "description": "Test case to debug (e.g., test1, test2, etc.)"
+        },
+        {
+            "type": "promptString",
+            "id": "paramsFile",
+            "description": "Custom params.input file to use",
+            "default": "params.input"
+        }
+    ]
+}
