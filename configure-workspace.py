@@ -52,7 +52,11 @@ inputs = sorted(
         set(
             map(
                 lambda s: str(Path(s).name),
-                glob(f"{ROOT_DIR}/**/*.input", recursive=True),
+                [
+                    f
+                    for f in glob(f"{ROOT_DIR}/**/*.input", recursive=True)
+                    if "build-cmake" not in Path(f).parts
+                ],
             )
         )
     )
