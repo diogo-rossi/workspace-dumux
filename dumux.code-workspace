@@ -109,7 +109,7 @@
                 "label": "DUMUX 7 run test",
                 "detail": "Run specific test with `<test-name> <param.input>`(Run in `build-cmake/{relative-file}` folder)",
                 "type": "shell",
-                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; logFile=$folder/$(date +\"%Y-%m-%d--%H-%M-%S\")---${input:testCase}-run.log; echo ----------; echo \">\" cd $folder; echo \">\" ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} | tee $logFile; echo Log file: $logFile; ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} 2>&1 | tee -a $logFile; echo Log file: $logFile",
+                "command": "folder=$(echo '${fileWorkspaceFolder}/build-cmake/${relativeFileDirname}' | tr '\\\\' '/'); cd $folder; logFile=$folder/$(date +\"%Y-%m-%d--%H-%M-%S\")---${input:testCase}-run.log; echo ----------; echo \">\" cd $folder; echo \">\" ${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} | tee $logFile; echo Log file: $logFile; ./${input:testCase} ${input:paramsFile} ${PN:+-Problem.Name \"$PN\"} 2>&1 | tee -a $logFile; echo Log file: $logFile",
                 "options": {
                     "env": {
                         "PN": "${input:problemName}"
